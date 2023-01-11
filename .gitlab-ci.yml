@@ -1,0 +1,23 @@
+image: alpine:edge
+
+before_script:
+  - apk --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ upgrade
+  - apk --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ add nodejs npm
+  - npm i -g @looker/look-at-me-sideways@2 --unsafe-perm
+
+stages:
+  - run-lams
+
+lams:
+  stage: run-lams
+  when: always
+  allow_failure: true
+  script: 
+  - lams --reporting=no --output=lines,markdown --on-parser-error=info 
+  # after_script:
+  # - git add . && git commit -m'update issues.md'
+  artifacts:
+    expire_in: 2 weeks
+    when: always
+    paths:
+      - issues.md
