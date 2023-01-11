@@ -1,8 +1,7 @@
--  looker_lams_poc
+# Looker LAMS template
 
 Looker LAMS template example :
-- Low strictness
-
+## Low strictness
 
 Rules excluded
 - K2: "Primary Key Dimensions do not need to be named like pk{n}_{key_name}"
@@ -28,7 +27,8 @@ Rules excluded
 - E4: "Explores must not declare `always_filter` on the base table's sort key / parition column / clustered index"
 
 
-- Medium strictness
+## Medium strictness
+
 Rules excluded :
 
 - K2: "Primary Key Dimensions do not need to be named like pk{n}_{key_name}"
@@ -39,7 +39,7 @@ Rules excluded :
 - T8: "No need to en PK column with '---' on its own line"
 
 
-- Hight strictness
+## Hight strictness
 No rule excluded
 
 
